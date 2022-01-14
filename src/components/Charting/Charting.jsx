@@ -9,10 +9,17 @@ const Charting = props => {
         { type: 'linear', position: 'left' }
     ]
 
+    const series = React.useMemo(
+        () => ({
+            showPoints: true
+        }),
+        []
+    )
+
     return (
         <div>
             <div style={{height: "600px"}}>
-                {chartData.length > 0 && <Chart style={{maxHeight: "500px", maxWidth: "inherit"}} data={chartData} axes={axes} />}
+                {chartData.length > 0 && <Chart style={{maxHeight: "500px", maxWidth: "inherit"}} series={series} data={chartData} axes={axes} />}
             </div>
         </div>
     )
